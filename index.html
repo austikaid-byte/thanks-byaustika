@@ -1,461 +1,290 @@
 <!DOCTYPE html>
-
 <html lang="id">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Terima Kasih | Austika</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-
         * {
-
             margin: 0;
-
             padding: 0;
-
             box-sizing: border-box;
-
         }
 
         body {
-
             font-family: 'Poppins', sans-serif;
-
             background: linear-gradient(135deg, #f8d7e3 0%, #f5bfd1 50%, #efabc4 100%);
-
             min-height: 100vh;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             padding: 25px 18px;
-
             color: #5d4a55;
-
             overflow-x: hidden;
-
             position: relative;
-
         }
 
-        /* Glow effect */
-
         body::before,
-
         body::after {
-
             content: "";
-
             position: fixed;
-
             width: 420px;
-
             height: 420px;
-
             border-radius: 50%;
-
             filter: blur(120px);
-
             z-index: -1;
-
-            opacity: 0.5;
-
+            opacity: 0.55;
         }
 
         body::before {
-
             top: -180px;
-
             left: -150px;
-
-            background: rgba(255, 255, 255, 0.35);
-
+            background: rgba(255, 255, 255, 0.38);
         }
 
         body::after {
-
             bottom: -180px;
-
             right: -150px;
-
-            background: rgba(255, 255, 255, 0.25);
-
+            background: rgba(255, 255, 255, 0.28);
         }
 
         .container {
-
             width: 100%;
-
             max-width: 560px;
-
             background: rgba(255, 255, 255, 0.96);
-
             border-radius: 34px;
-
             padding: 50px 38px;
-
             text-align: center;
-
             position: relative;
-
             overflow: hidden;
-
             backdrop-filter: blur(15px);
-
             border: 1px solid rgba(255, 255, 255, 0.8);
-
             box-shadow:
-
                 0 30px 80px rgba(189, 102, 139, 0.28),
-
                 0 10px 30px rgba(0, 0, 0, 0.06);
-
         }
 
-        /* Floral Decoration */
-
         .container::before,
-
         .container::after {
-
             content: "✿";
-
             position: absolute;
-
-            font-size: 190px;
-
-            color: rgba(228, 184, 200, 0.10);
-
+            color: rgba(228, 184, 200, 0.18);
             z-index: 0;
-
             pointer-events: none;
-
             user-select: none;
-
+            font-family: serif;
         }
 
         .container::before {
-
-            top: -55px;
-
-            right: -25px;
-
-            transform: rotate(18deg);
-
+            font-size: 230px;
+            top: -65px;
+            right: -40px;
+            transform: rotate(20deg);
         }
 
         .container::after {
+            font-size: 210px;
+            bottom: -100px;
+            left: -45px;
+            transform: rotate(210deg);
+        }
 
-            bottom: -90px;
-
-            left: -40px;
-
-            transform: rotate(205deg);
-
+        .flower-center {
+            position: absolute;
+            font-size: 120px;
+            color: rgba(228, 184, 200, 0.11);
+            top: 42%;
+            right: -45px;
+            transform: rotate(-15deg);
+            z-index: 0;
+            pointer-events: none;
+            user-select: none;
         }
 
         .content {
-
             position: relative;
-
             z-index: 2;
-
         }
 
         .brand-name {
-
             font-family: 'Cormorant Garamond', serif;
-
             font-size: 4rem;
-
             font-weight: 700;
-
             color: #8b6677;
-
             letter-spacing: 7px;
-
-            margin-bottom: 20px;
-
+            margin-bottom: 45px;
             line-height: 1;
-
-        }
-
-        .top-text {
-
-            font-size: 0.96rem;
-
-            line-height: 1.8;
-
-            color: #b28799;
-
-            margin-bottom: 28px;
-
+            position: relative;
         }
 
         h1 {
-
             font-family: 'Cormorant Garamond', serif;
-
             font-size: 3rem;
-
             line-height: 1.15;
-
             color: #6f4d5d;
-
             margin-bottom: 30px;
-
         }
 
         p {
-
             font-size: 1.04rem;
-
             line-height: 1.95;
-
             color: #6d5963;
-
             margin-bottom: 24px;
-
         }
 
         strong {
-
             color: #8b6677;
-
         }
 
         .signature {
-
-            margin: 38px 0 32px;
-
+            margin: 38px 0 18px;
             font-size: 1.08rem;
-
             font-weight: 600;
-
             letter-spacing: 6px;
-
             color: #8f6a7d;
+        }
 
+        .feedback-text {
+            margin: 34px 0 22px;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #b28799;
+            padding: 0 10px;
         }
 
         .btn {
-
             display: block;
-
             width: 100%;
-
             text-decoration: none;
-
             padding: 17px 24px;
-
             margin-bottom: 16px;
-
             border-radius: 999px;
-
             color: #ffffff;
-
             font-weight: 600;
-
             font-size: 1rem;
-
             background: linear-gradient(135deg, #f8a9c1, #ed7ea4);
-
             box-shadow: 0 14px 30px rgba(237, 126, 164, 0.35);
-
             transition: all 0.35s ease;
-
             position: relative;
-
             overflow: hidden;
-
         }
 
         .btn:hover {
-
             transform: translateY(-4px);
-
             box-shadow: 0 22px 40px rgba(237, 126, 164, 0.45);
-
         }
 
         .btn::before {
-
             content: "";
-
             position: absolute;
-
             top: 0;
-
             left: -120%;
-
             width: 100%;
-
             height: 100%;
-
             background: linear-gradient(
-
                 120deg,
-
                 transparent,
-
                 rgba(255,255,255,0.35),
-
                 transparent
-
             );
-
             transition: 0.8s;
-
         }
 
         .btn:hover::before {
-
             left: 120%;
-
         }
 
         .footer-note {
-
             margin-top: 32px;
-
             font-size: 0.88rem;
-
             color: #b593a3;
-
             font-style: italic;
-
         }
 
         @media (max-width: 768px) {
-
             .container {
-
                 padding: 40px 26px;
-
                 border-radius: 28px;
-
             }
 
             .brand-name {
-
                 font-size: 3.1rem;
-
                 letter-spacing: 5px;
-
+                margin-bottom: 35px;
             }
 
             h1 {
-
                 font-size: 2.35rem;
-
             }
 
             p {
-
                 font-size: 0.98rem;
-
             }
 
+            .flower-center {
+                display: none;
+            }
         }
-
     </style>
-
 </head>
-
 <body>
 
     <div class="container">
+        <span class="flower-center">✿</span>
 
         <div class="content">
-
             <div class="brand-name">AUSTIKA</div>
-
-            <div class="top-text">
-
-                🤍 Kritik, saran, atau ingin melihat koleksi terbaru?<br>
-
-                Yuk, follow kami ya Kak!
-
-            </div>
 
             <h1>Haii, Terima Kasih, Kak ✨</h1>
 
             <p>
-
                 Dengan penuh rasa syukur, kami dari <strong>Austika</strong>
-
                 mengucapkan terima kasih atas kepercayaan Kakak
-
                 kepada produk kami.
-
             </p>
 
             <p>
-
                 Setiap pembelian bukan hanya sekadar transaksi,
-
                 tetapi menjadi bagian dari perjalanan kami untuk terus
-
                 menghadirkan kualitas dan keindahan terbaik.
-
             </p>
 
             <p>
-
                 Semoga setiap helai yang Kakak kenakan dari Austika
-
                 membawa rasa percaya diri, kenyamanan, dan kebahagiaan.
-
                 Karena bagi kami, kebahagiaan Kakak adalah energi terbesar
-
                 yang membuat kami terus tumbuh ✨
-
             </p>
 
             <div class="signature">— AUSTIKA —</div>
 
+            <div class="feedback-text">
+                🤍 Kritik, saran, atau ingin melihat koleksi terbaru?<br>
+                Yuk, follow kami ya Kak!
+            </div>
+
             <a href="https://www.instagram.com/austika.id?igsh=MWI3cGR3eHRvc2pjcw%3D%3D&utm_source=qr" target="_blank" class="btn">
-
                 Follow Instagram
-
             </a>
 
             <a href="https://www.tiktok.com/@austika.id?_r=1&_t=ZS-95GMOQMjLGe" target="_blank" class="btn">
-
                 Follow TikTok
-
             </a>
 
             <a href="https://wa.me/message/53L6NBAHR4YUM1" target="_blank" class="btn">
-
                 Hubungi WhatsApp
-
             </a>
 
             <div class="footer-note">
-
                 Crafted with love by Austika ♡
-
             </div>
-
         </div>
-
     </div>
 
 </body>
-
 </html>
